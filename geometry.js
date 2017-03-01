@@ -1,10 +1,10 @@
 
 
 var forma = new THREE.Geometry();
-forma.vertices.push( new THREE.Vector3( 1,  0,  1 ) ); // Vértice 0
+forma.vertices.push( new THREE.Vector3( 1,  0,  2 ) ); // Vértice 0
 forma.vertices.push( new THREE.Vector3( 1,  0, -1 ) ); // Vértice 1
 forma.vertices.push( new THREE.Vector3(-1,  0, -1 ) ); // Vértice 2
-forma.vertices.push( new THREE.Vector3(-2,  0,  1 ) ); // Vértice 3
+forma.vertices.push( new THREE.Vector3(-4,  0,  1 ) ); // Vértice 3
 forma.vertices.push( new THREE.Vector3( 0,  3,  0 ) ); // Vértice 4
 forma.faces.push( new THREE.Face3( 3, 2, 1 ) ); // Cara 0
 forma.faces.push( new THREE.Face3( 3, 1, 0 ) ); // Cara 1

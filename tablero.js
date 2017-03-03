@@ -97,7 +97,7 @@ mallaGusano.position.z=300;
 arbolMalla.position.x=-300;
 arbolMalla.position.z=250;
 
-mallaPicos.position.x=-550;
+mallaPicos.position.x=-350;
 mallaPicos.position.z=300;
 
 

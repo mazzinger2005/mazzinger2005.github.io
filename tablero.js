@@ -17,7 +17,7 @@ var material = new THREE.MeshNormalMaterial();
 var malla = new THREE.Mesh( forma, material );
 malla.rotateX( Math.PI/6 );
 ///////////////////////////////////////////////////////////////////////
-var troncoForma = new THREE.CylinderGeometry(.25, .5, 1);
+var troncoForma = new THREE.CylinderGeometry(125, 250, 300);
 var esferaForma = new THREE.SphereGeometry(100);
 esferaForma.translate(0,1,0);
 

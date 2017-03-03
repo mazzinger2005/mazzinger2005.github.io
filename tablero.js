@@ -46,8 +46,8 @@ camara.lookAt(malla.position);
 //malla.position.x=-200;
 //malla.position.z=200;
 
-arbolmalla.position.x=-200;
-arbolmalla.position.z=200;
+arbolMalla.position.x=-200;
+arbolMalla.position.z=200;
 
 escena.add(camara);
 

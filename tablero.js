@@ -40,6 +40,9 @@ camara.position.z = 500;
 camara.position.y = 140;
 camara.position.z = 635;
 
+
+camara.lookAt(malla.position);
+
 malla.position.x=-200;
 malla.position.z=200;
 

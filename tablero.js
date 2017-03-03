@@ -9,8 +9,8 @@ var camara = new THREE.PerspectiveCamera(65,(WIDTH / HEIGHT),0.1,10000);
 var puntos = [];
 for ( var i = 0; i < 50; i ++ ) {
     puntos.push( new THREE.Vector2(
-                     Math.sin( i * 0.5 ) * 15 + 50,
-                     ( i - 5 ) * 3 ) );
+                     Math.cos( i * 0.6 ) * 15 + 50,
+                     ( i - 5 ) * 4 ) );
 }
 var forma = new THREE.LatheGeometry(puntos);
 
@@ -23,7 +23,7 @@ var escena = new THREE.Scene();
 escena.add(malla);
 
 var camara = new THREE.PerspectiveCamera();
-camara.position.z = 500;
+camara.position.z = 1000;
 
 var renderizador = new THREE.WebGLRenderer();
 renderizador.setSize( window.innerHeight*.95, window.innerHeight*.95 );

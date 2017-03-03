@@ -5,7 +5,7 @@ forma.vertices.push( new THREE.Vector3( 1.5,  0,  1.5 ) ); // Vértice 0
 forma.vertices.push( new THREE.Vector3( 1.5,  0, -1.5 ) ); // Vértice 1
 forma.vertices.push( new THREE.Vector3(-1,  0, -1 ) ); // Vértice 2
 forma.vertices.push( new THREE.Vector3(-1,  0,  1 ) ); // Vértice 3
-forma.vertices.push( new THREE.Vector3( 0,  1,  0 ) ); // Vértice 4
+forma.vertices.push( new THREE.Vector3( 0,  2,  0 ) ); // Vértice 4
 forma.vertices.push( new THREE.Vector3( 0, -2,  0 ) ); // Vértice 5
 forma.faces.push( new THREE.Face3( 3, 2, 1 ) ); // Cara 0
 forma.faces.push( new THREE.Face3( 3, 1, 0 ) ); // Cara 1
@@ -29,7 +29,7 @@ var escena = new THREE.Scene();
 escena.add( malla );
 
 var camara = new THREE.PerspectiveCamera();
-camara.position.z = 0;
+camara.position.z = 10;
 
 var renderizador = new THREE.WebGLRenderer();
 renderizador.setSize( window.innerHeight*.95, 

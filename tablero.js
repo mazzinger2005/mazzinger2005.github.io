@@ -73,6 +73,10 @@ var mallaPicos = new THREE.Mesh( forma, material );
 mallaPicos.rotateX( Math.PI/16 );
 mallaPicos.rotateY( Math.PI/16 );
 
+//////////FIGURA 4 POR VÉRTICES//////////////////////////////////////////////////////
+
+
+
 ////////////////////ESCENAS////////////////////////////////////////////////////////////
 var escena = new THREE.Scene();
 escena.add(mallaGusano);
@@ -93,8 +97,8 @@ mallaGusano.position.z=300;
 arbolMalla.position.x=-300;
 arbolMalla.position.z=250;
 
-mallaPicos.position.x=-600;
-mallaPicos.position.z=350;
+mallaPicos.position.x=-700;
+mallaPicos.position.z=400;
 
 
 escena.add(camara);

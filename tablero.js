@@ -19,7 +19,7 @@ malla.rotateX( Math.PI/6 );
 ///////////////////////////////////////////////////////////////////////
 var troncoForma = new THREE.CylinderGeometry(30, 75, 150);
 var esferaForma = new THREE.SphereGeometry(30);
-esferaForma.translate(0,1,0);
+esferaForma.translate(0,40,0);
 
 var troncoMalla = new THREE.Mesh(troncoForma);
 var esferaMalla = new THREE.Mesh(esferaForma);

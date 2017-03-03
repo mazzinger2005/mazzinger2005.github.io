@@ -97,11 +97,11 @@ mallaPiramide.rotateY(Math.PI/8);
 
 //////////FIGURA 5 POR UNIÓN DE MALLAS/////////////////////////////////////////////////
 
-var troncoForma = new THREE.CylinderGeometry(80, 50, 150);
-var cuboForma = new THREE.CubeGeometry(200,50, 200);
-var esferaForma = new THREE.SphereGeometry(100);
-esferaForma.translate(0,120,0);
-cuboForma.translate(0,-100,0);
+var troncoForma = new THREE.CylinderGeometry(40, 25, 75);
+var cuboForma = new THREE.CubeGeometry(100,25, 100);
+var esferaForma = new THREE.SphereGeometry(50);
+esferaForma.translate(0,60,0);
+cuboForma.translate(0,-50,0);
 
 var troncoMalla = new THREE.Mesh(troncoForma);
 var cuboMalla = new THREE.Mesh(cuboForma);

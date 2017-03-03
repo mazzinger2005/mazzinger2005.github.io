@@ -97,8 +97,8 @@ mallaGusano.position.z=300;
 arbolMalla.position.x=-300;
 arbolMalla.position.z=250;
 
-mallaPicos.position.x=-700;
-mallaPicos.position.z=400;
+mallaPicos.position.x=-600;
+mallaPicos.position.z=350;
 
 
 escena.add(camara);

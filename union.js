@@ -1,8 +1,8 @@
 var troncoForma = new THREE.CylinderGeometry(1, 1, 1.5);
-var cuboForma = new THREE.CubeGeometry(1, 0.5, 1);
+var cuboForma = new THREE.CubeGeometry(2, 0.5, 2);
 var esferaForma = new THREE.SphereGeometry(1);
 esferaForma.translate(0,1,0);
-cuboForma.translate(0,-1.5,0);
+cuboForma.translate(0,-0.5,0);
 
 var troncoMalla = new THREE.Mesh(troncoForma);
 var cuboMalla = new THREE.Mesh(cuboForma);

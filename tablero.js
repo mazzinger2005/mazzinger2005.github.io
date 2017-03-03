@@ -70,7 +70,7 @@ var forma = new THREE.ExtrudeGeometry( figura,
                                        {amount: 40} );
 var material = new THREE.MeshNormalMaterial();
 var mallaPicos = new THREE.Mesh( forma, material );
-mallaPicos.rotateX( Math.PI/8 );
+mallaPicos.rotateZ( Math.PI/6 );
 
 //////////FIGURA 4 POR VÉRTICES//////////////////////////////////////////////////////
 
@@ -96,7 +96,7 @@ mallaGusano.position.z=300;
 arbolMalla.position.x=-300;
 arbolMalla.position.z=250;
 
-mallaPicos.position.x=-350;
+mallaPicos.position.x=-400;
 mallaPicos.position.z=300;
 
 

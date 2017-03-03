@@ -3,7 +3,6 @@ HEIGHT = window.innerHeight;
 var renderizador = new THREE.WebGLRenderer({antialias: true});
 renderizador.setSize(WIDTH,HEIGHT);
 document.body.appendChild(renderizador.domElement);
-//var camara = new THREE.PerspectiveCamera(65,(WIDTH / HEIGHT),0.1,10000);
 
 var puntos = [];
 for ( var i = 0; i < 50; i ++ ) {
@@ -23,5 +22,7 @@ escena.add(malla);
 
 var camara = new THREE.PerspectiveCamera(65,(WIDTH / HEIGHT),0.1,10000);
 camara.position.z = 500;
+camara.position.y = 140;
+camara.position.z = 635;
 
 renderizador.render( escena, camara );

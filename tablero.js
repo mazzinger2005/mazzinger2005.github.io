@@ -1,9 +1,8 @@
 WIDTH = window.innerWidth;
 HEIGHT = window.innerHeight;
-var lienzo = new THREE.WebGLRenderer({antialias: true});
-
-lienzo.setSize(WIDTH,HEIGHT);
-document.body.appendChild(lienzo.domElement);
+var renderizador = new THREE.WebGLRenderer({antialias: true});
+renderizador.setSize(WIDTH,HEIGHT);
+document.body.appendChild(renderizador.domElement);
 //var camara = new THREE.PerspectiveCamera(65,(WIDTH / HEIGHT),0.1,10000);
 
 var puntos = [];
@@ -25,7 +24,4 @@ escena.add(malla);
 var camara = new THREE.PerspectiveCamera();
 camara.position.z = 500;
 
-var renderizador = new THREE.WebGLRenderer();
-renderizador.setSize( window.innerHeight*.95, window.innerHeight*.95 );
-document.body.appendChild( renderizador.domElement );
 renderizador.render( escena, camara );

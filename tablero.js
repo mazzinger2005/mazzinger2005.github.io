@@ -99,7 +99,7 @@ mallaPiramide.rotateY(Math.PI/8);
 
 var troncoForma = new THREE.CylinderGeometry(80, 50, 150);
 var cuboForma = new THREE.CubeGeometry(200,50, 200);
-var esferaForma = new THREE.SphereGeometry(1);
+var esferaForma = new THREE.SphereGeometry(100);
 esferaForma.translate(0,120,0);
 cuboForma.translate(0,-100,0);
 
@@ -107,13 +107,13 @@ var troncoMalla = new THREE.Mesh(troncoForma);
 var cuboMalla = new THREE.Mesh(cuboForma);
 var esferaMalla = new THREE.Mesh(esferaForma);
 
-var arbolForma = new THREE.Geometry();
-arbolForma.merge(troncoMalla.geometry, troncoMalla.matrix);
-arbolForma.merge(esferaMalla.geometry, esferaMalla.matrix);
-arbolForma.merge(cuboMalla.geometry, cuboMalla.matrix);
+var arbolForma1 = new THREE.Geometry();
+arbolForma1.merge(troncoMalla.geometry, troncoMalla.matrix);
+arbolForma1.merge(esferaMalla.geometry, esferaMalla.matrix);
+arbolForma1.merge(cuboMalla.geometry, cuboMalla.matrix);
 
 var material = new THREE.MeshNormalMaterial();
-var arbolMalla1 = new THREE.Mesh(arbolForma, material);
+var arbolMalla1 = new THREE.Mesh(arbolForma1, material);
 
 ////////////////////ESCENAS////////////////////////////////////////////////////////////
 var escena = new THREE.Scene();

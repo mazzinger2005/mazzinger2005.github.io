@@ -75,11 +75,11 @@ mallaPicos.rotateZ( Math.PI/6 );
 //////////FIGURA 4 POR VÉRTICES//////////////////////////////////////////////////////
 
 var forma = new THREE.Geometry();
-forma.vertices.push( new THREE.Vector3( 1.5,  0,  1.5 ) ); // Vértice 0
-forma.vertices.push( new THREE.Vector3( 1.5,  0, -1.5 ) ); // Vértice 1
-forma.vertices.push( new THREE.Vector3(-1,  0, -1 ) ); // Vértice 2
-forma.vertices.push( new THREE.Vector3(-1,  0,  1 ) ); // Vértice 3
-forma.vertices.push( new THREE.Vector3( 0,  2,  0 ) ); // Vértice 4
+forma.vertices.push( new THREE.Vector3( 37.5,  0,  37.5 ) ); // Vértice 0
+forma.vertices.push( new THREE.Vector3( 37.5,  0, -37.5 ) ); // Vértice 1
+forma.vertices.push( new THREE.Vector3(-25,  0, -25 ) ); // Vértice 2
+forma.vertices.push( new THREE.Vector3(-25,  0,  25 ) ); // Vértice 3
+forma.vertices.push( new THREE.Vector3( 0,  50,  0 ) ); // Vértice 4
 forma.faces.push( new THREE.Face3( 3, 2, 1 ) ); // Cara 0
 forma.faces.push( new THREE.Face3( 3, 1, 0 ) ); // Cara 1
 forma.faces.push( new THREE.Face3( 3, 0, 4 ) ); // Cara 2
@@ -94,6 +94,27 @@ var material = new THREE.MeshNormalMaterial();
 var mallaPiramide = new THREE.Mesh( forma, material );
 mallaPiramide.rotateX(Math.PI/8);
 mallaPiramide.rotateY(Math.PI/8);
+
+//////////FIGURA 5 POR UNIÓN DE MALLAS/////////////////////////////////////////////////
+
+var troncoForma = new THREE.CylinderGeometry(0.8, 0.5, 1.5);
+var cuboForma = new THREE.CubeGeometry(2, 0.5, 2);
+var esferaForma = new THREE.SphereGeometry(1);
+esferaForma.translate(0,1.2,0);
+cuboForma.translate(0,-1,0);
+
+var troncoMalla = new THREE.Mesh(troncoForma);
+var cuboMalla = new THREE.Mesh(cuboForma);
+var esferaMalla = new THREE.Mesh(esferaForma);
+
+var arbolForma = new THREE.Geometry();
+arbolForma.merge(troncoMalla.geometry, troncoMalla.matrix);
+arbolForma.merge(esferaMalla.geometry, esferaMalla.matrix);
+arbolForma.merge(cuboMalla.geometry, cuboMalla.matrix);
+
+var material = new THREE.MeshNormalMaterial();
+var arbolMalla = new THREE.Mesh(arbolForma, material);
+
 ////////////////////ESCENAS////////////////////////////////////////////////////////////
 var escena = new THREE.Scene();
 escena.add(mallaGusano);

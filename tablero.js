@@ -37,11 +37,11 @@ escena.add(arbolMalla);
 
 var camara = new THREE.PerspectiveCamera(65,(WIDTH / HEIGHT),0.1,10000);
 camara.position.z = 700;
-camara.position.y = 300;
-camara.position.x = 300;
+camara.position.y = 140;
+camara.position.x = 99;
 
 
-//camara.lookAt(malla.position);
+camara.lookAt(malla.position);
 
 //malla.position.x=-200;
 //malla.position.z=200;

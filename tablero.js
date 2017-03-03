@@ -49,6 +49,6 @@ malla.position.z=200;
 arbolmalla.position.x=0;
 arbolmalla.position.z=300;
 
-escena.add(camara);
+//escena.add(camara);
 
 renderizador.render( escena, camara );

@@ -97,11 +97,11 @@ mallaPiramide.rotateY(Math.PI/8);
 
 //////////FIGURA 5 POR UNIÓN DE MALLAS/////////////////////////////////////////////////
 
-var troncoForma = new THREE.CylinderGeometry(0.8, 0.5, 1.5);
-var cuboForma = new THREE.CubeGeometry(2, 0.5, 2);
+var troncoForma = new THREE.CylinderGeometry(80, 50, 150);
+var cuboForma = new THREE.CubeGeometry(200,50, 200);
 var esferaForma = new THREE.SphereGeometry(1);
-esferaForma.translate(0,1.2,0);
-cuboForma.translate(0,-1,0);
+esferaForma.translate(0,120,0);
+cuboForma.translate(0,-100,0);
 
 var troncoMalla = new THREE.Mesh(troncoForma);
 var cuboMalla = new THREE.Mesh(cuboForma);
@@ -113,7 +113,7 @@ arbolForma.merge(esferaMalla.geometry, esferaMalla.matrix);
 arbolForma.merge(cuboMalla.geometry, cuboMalla.matrix);
 
 var material = new THREE.MeshNormalMaterial();
-var arbolMalla = new THREE.Mesh(arbolForma, material);
+var arbolMalla1 = new THREE.Mesh(arbolForma, material);
 
 ////////////////////ESCENAS////////////////////////////////////////////////////////////
 var escena = new THREE.Scene();
@@ -121,6 +121,7 @@ escena.add(mallaGusano);
 escena.add(arbolMalla);
 escena.add(mallaPicos);
 escena.add(mallaPiramide);
+escena.add(arbolMalla1);
 ////////////////////PARÁMETROS DE CAMARA//////////////////////////////////////////////
 var camara = new THREE.PerspectiveCamera(65,(WIDTH / HEIGHT),0.1,10000);
 camara.position.z = 700;
@@ -140,6 +141,9 @@ mallaPicos.position.z=300;
 
 mallaPiramide.position.x=200;
 mallaPiramide.position.z=250;
+
+arbolMalla1.position.x=350;
+arbolMalla1.position.z=300;
 
 escena.add(camara);
 

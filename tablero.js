@@ -40,4 +40,10 @@ camara.position.z = 500;
 camara.position.y = 140;
 camara.position.z = 635;
 
+malla.position.x=-200;
+malla.position.z=200;
+
+arbolmalla.position.x=0;
+arbolmalla.position.z=300;
+
 renderizador.render( escena, camara );

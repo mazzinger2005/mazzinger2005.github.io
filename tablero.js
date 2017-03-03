@@ -70,8 +70,8 @@ var forma = new THREE.ExtrudeGeometry( figura,
                                        {amount: 40} );
 var material = new THREE.MeshNormalMaterial();
 var mallaPicos = new THREE.Mesh( forma, material );
-mallaPicos.rotateX( Math.PI/6 );
-mallaPicos.rotateY( Math.PI/6 );
+mallaPicos.rotateX( Math.PI/16 );
+mallaPicos.rotateY( Math.PI/16 );
 
 ////////////////////ESCENAS////////////////////////////////////////////////////////////
 var escena = new THREE.Scene();
@@ -93,8 +93,8 @@ mallaGusano.position.z=300;
 arbolMalla.position.x=-300;
 arbolMalla.position.z=250;
 
-mallaPicos.position.x=-500;
-mallaPicos.position.z=200;
+mallaPicos.position.x=-600;
+mallaPicos.position.z=350;
 
 
 escena.add(camara);

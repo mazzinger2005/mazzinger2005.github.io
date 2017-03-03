@@ -1,9 +1,13 @@
+////////////////////INICIO/////////////////////////////////////////////////////////
+
+//////////////////////////PARÁMETROS DE LIENZO (TABLERO)///////////////////////////
 WIDTH = window.innerWidth;
 HEIGHT = window.innerHeight;
 var renderizador = new THREE.WebGLRenderer({antialias: true});
 renderizador.setSize(WIDTH,HEIGHT);
 document.body.appendChild(renderizador.domElement);
 
+//////////FIGURA 1 POR REVOLUCIÓN/////////////////////////////////////////////////
 var puntos = [];
 for ( var i = 0; i < 50; i ++ ) {
     puntos.push( new THREE.Vector2(
@@ -14,10 +18,10 @@ var forma = new THREE.LatheGeometry(puntos);
 
 var material = new THREE.MeshNormalMaterial();
 
-var malla = new THREE.Mesh( forma, material );
-malla.rotateX( Math.PI/6 );
-malla.rotateY( Math.PI/6 );
-///////////////////////////////////////////////////////////////////////
+var mallaGusano = new THREE.Mesh( forma, material );
+mallaGusano.rotateX( Math.PI/6 );
+mallaGusano.rotateY( Math.PI/6 );
+//////////FIGURA 2 POR UNIÓN DE MALLAS/////////////////////////////////////////////
 var troncoForma = new THREE.CylinderGeometry(30, 75, 150);
 var esferaForma = new THREE.SphereGeometry(50);
 var cuboForma = new THREE.CubeGeometry(50,50,50);
@@ -44,23 +48,54 @@ arbolForma.merge(cuboMalla2.geometry, cuboMalla2.matrix);
 var material = new THREE.MeshNormalMaterial();
 var arbolMalla = new THREE.Mesh(arbolForma, material);
 
-var escena = new THREE.Scene();
-escena.add(malla);
-escena.add(arbolMalla);
+//////////FIGURA 3 POR EXTRUSIÓN//////////////////////////////////////////////////////
 
+var figura = new THREE.Shape();
+
+figura.moveTo(10, 10);
+figura.lineTo(-10, 40);
+figura.lineTo(0, 46);
+figura.lineTo(-10, 60);
+figura.lineTo(10, 52);
+figura.lineTo(40, 80);
+figura.lineTo(60, 52);
+figura.lineTo(80, 60);
+figura.lineTo(70, 46);
+figura.lineTo(80, 40);
+figura.lineTo(60, 10);
+figura.lineTo(40, 30);
+figura.lineTo(10, 10);
+
+var forma = new THREE.ExtrudeGeometry( figura,
+                                       {amount: 40} );
+var material = new THREE.MeshNormalMaterial();
+var mallaPicos = new THREE.Mesh( forma, material );
+mallaPicos.rotateX( Math.PI/6 );
+mallaPicos.rotateY( Math.PI/6 );
+
+////////////////////ESCENAS////////////////////////////////////////////////////////////
+var escena = new THREE.Scene();
+escena.add(mallaGusano);
+escena.add(arbolMalla);
+escena.add(mallaPicos)
+
+////////////////////PARÁMETROS DE CAMARA//////////////////////////////////////////////
 var camara = new THREE.PerspectiveCamera(65,(WIDTH / HEIGHT),0.1,10000);
 camara.position.z = 700;
 camara.position.y = 140;
 camara.position.x = 99;
 
+//////////////////////POSICIÓN DE FIGURAS EN TABLERO//////////////////////////////////
+camara.lookAt(mallaGusano.position);
 
-camara.lookAt(malla.position);
-
-
-malla.position.z=250;
+mallaGusano.position.z=300;
 
 arbolMalla.position.x=-300;
-arbolMalla.position.z=200;
+arbolMalla.position.z=250;
+
+mallaPicos.position.x=-500;
+mallaPicos.position.z=200;
+
 
 escena.add(camara);
 

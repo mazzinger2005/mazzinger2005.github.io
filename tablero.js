@@ -18,8 +18,8 @@ var malla = new THREE.Mesh( forma, material );
 malla.rotateX( Math.PI/6 );
 ///////////////////////////////////////////////////////////////////////
 var troncoForma = new THREE.CylinderGeometry(30, 75, 150);
-var esferaForma = new THREE.SphereGeometry(30);
-esferaForma.translate(0,40,0);
+var esferaForma = new THREE.SphereGeometry(40);
+esferaForma.translate(0,150,0);
 
 var troncoMalla = new THREE.Mesh(troncoForma);
 var esferaMalla = new THREE.Mesh(esferaForma);
@@ -44,8 +44,8 @@ camara.position.z = 700;
 //malla.position.x=-200;
 //malla.position.z=200;
 
-//arbolmalla.position.x=0;
-//arbolmalla.position.z=300;
+arbolmalla.position.x=-200;
+arbolmalla.position.z=0;
 
 //escena.add(camara);
 

@@ -21,13 +21,16 @@ var troncoForma = new THREE.CylinderGeometry(30, 75, 150);
 var esferaForma = new THREE.SphereGeometry(50);
 var cuboForma = new THREE.CubeGeometry(100,50,100);
 esferaForma.translate(0,150,0);
+cuboForma.translate(0,-50,0)
 
 var troncoMalla = new THREE.Mesh(troncoForma);
 var esferaMalla = new THREE.Mesh(esferaForma);
+var cuboMalla = new THREE.Mesh(cuboForma);
 
 var arbolForma = new THREE.Geometry();
 arbolForma.merge(troncoMalla.geometry, troncoMalla.matrix);
 arbolForma.merge(esferaMalla.geometry, esferaMalla.matrix);
+arbolForma.merge(cuboMalla.geometry, cuboMalla.matrix);
 
 var material = new THREE.MeshNormalMaterial();
 var arbolMalla = new THREE.Mesh(arbolForma, material);
@@ -45,7 +48,7 @@ camara.position.x = 99;
 camara.lookAt(malla.position);
 
 
-malla.position.z=400;
+malla.position.z=250;
 
 arbolMalla.position.x=-200;
 arbolMalla.position.z=200;

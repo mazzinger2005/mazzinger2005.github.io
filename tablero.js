@@ -70,8 +70,7 @@ var forma = new THREE.ExtrudeGeometry( figura,
                                        {amount: 40} );
 var material = new THREE.MeshNormalMaterial();
 var mallaPicos = new THREE.Mesh( forma, material );
-mallaPicos.rotateX( Math.PI/16 );
-mallaPicos.rotateY( Math.PI/16 );
+mallaPicos.rotateX( Math.PI/8 );
 
 //////////FIGURA 4 POR VÉRTICES//////////////////////////////////////////////////////
 

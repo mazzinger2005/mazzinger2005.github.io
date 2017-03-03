@@ -75,16 +75,17 @@ mallaPicos.rotateZ( Math.PI/6 );
 //////////FIGURA 4 POR VÉRTICES//////////////////////////////////////////////////////
 
 var forma = new THREE.Geometry();
-forma.vertices.push( new THREE.Vector3( 37.5,  0,  37.5 ) ); // Vértice 0
-forma.vertices.push( new THREE.Vector3( 37.5,  0, -37.5 ) ); // Vértice 1
-forma.vertices.push( new THREE.Vector3(-25,  0, -25 ) ); // Vértice 2
-forma.vertices.push( new THREE.Vector3(-25,  0,  25 ) ); // Vértice 3
-forma.vertices.push( new THREE.Vector3( 0,  50,  0 ) ); // Vértice 4
+forma.vertices.push( new THREE.Vector3( 50,  0,  50 ) ); // Vértice 0
+forma.vertices.push( new THREE.Vector3( 50,  0, -50 ) ); // Vértice 1
+forma.vertices.push( new THREE.Vector3(-50,  0, -50 ) ); // Vértice 2
+forma.vertices.push( new THREE.Vector3(-50,  0,  50 ) ); // Vértice 3
+forma.vertices.push( new THREE.Vector3( 0,  100,  0 ) ); // Vértice 4
 forma.faces.push( new THREE.Face3( 3, 2, 1 ) ); // Cara 0
 forma.faces.push( new THREE.Face3( 3, 1, 0 ) ); // Cara 1
 forma.faces.push( new THREE.Face3( 3, 0, 4 ) ); // Cara 2
 forma.faces.push( new THREE.Face3( 0, 1, 4 ) ); // Cara 3
 forma.faces.push( new THREE.Face3( 1, 2, 4 ) ); // Cara 4
+forma.faces.push( new THREE.Face3( 2, 3, 4 ) ); // Cara 5
 
 forma.computeBoundingSphere();
 forma.computeFaceNormals();
@@ -92,8 +93,8 @@ forma.computeFaceNormals();
 var material = new THREE.MeshNormalMaterial();
 
 var mallaPiramide = new THREE.Mesh( forma, material );
-mallaPiramide.rotateX(Math.PI/8);
-mallaPiramide.rotateY(Math.PI/8);
+mallaPiramide.rotateX(Math.PI/4);
+
 
 //////////FIGURA 5 POR UNIÓN DE MALLAS/////////////////////////////////////////////////
 

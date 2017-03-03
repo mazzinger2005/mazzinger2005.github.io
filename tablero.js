@@ -4,7 +4,7 @@ var lienzo = new THREE.WebGLRenderer({antialias: true});
 
 lienzo.setSize(WIDTH,HEIGHT);
 document.body.appendChild(lienzo.domElement);
-var camara = new THREE.PerspectiveCamera(65,(WIDTH / HEIGHT),0.1,10000);
+//var camara = new THREE.PerspectiveCamera(65,(WIDTH / HEIGHT),0.1,10000);
 
 var puntos = [];
 for ( var i = 0; i < 50; i ++ ) {

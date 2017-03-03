@@ -16,9 +16,24 @@ var material = new THREE.MeshNormalMaterial();
 
 var malla = new THREE.Mesh( forma, material );
 malla.rotateX( Math.PI/6 );
+///////////////////////////////////////////////////////////////////////
+var troncoForma = new THREE.CylinderGeometry(.25, .5, 1);
+var esferaForma = new THREE.SphereGeometry(.65);
+esferaForma.translate(0,1,0);
+
+var troncoMalla = new THREE.Mesh(troncoForma);
+var esferaMalla = new THREE.Mesh(esferaForma);
+
+var arbolForma = new THREE.Geometry();
+arbolForma.merge(troncoMalla.geometry, troncoMalla.matrix);
+arbolForma.merge(esferaMalla.geometry, esferaMalla.matrix);
+
+var material = new THREE.MeshNormalMaterial();
+var arbolMalla = new THREE.Mesh(arbolForma, material);
 
 var escena = new THREE.Scene();
 escena.add(malla);
+escena.add(arbolMalla);
 
 var camara = new THREE.PerspectiveCamera(65,(WIDTH / HEIGHT),0.1,10000);
 camara.position.z = 500;

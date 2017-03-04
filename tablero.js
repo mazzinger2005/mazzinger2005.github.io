@@ -219,10 +219,10 @@ function renderizar(){
 	arbolMalla.rotation.y += Math.PI*2/200;
 	arbolMallaA.rotation.y += Math.PI*2/200;
 	
-	mallaPicos.rotation.x += Math.PI*2/200;
-	mallaPicosA.rotation.x += Math.PI*2/200;
-	mallaPiramide.rotation.x += Math.PI*2/200;
-	mallaPiramideA.rotation.x += Math.PI*2/200;
+	mallaPicos.rotation.y += Math.PI*2/200;
+	mallaPicosA.rotation.y += Math.PI*2/200;
+	mallaPiramide.rotation.y += Math.PI*2/200;
+	mallaPiramideA.rotation.y += Math.PI*2/200;
 	
 	arbolMalla1.rotation.y += Math.PI*2/200;
 	arbolMalla1A.rotation.y += Math.PI*2/200;

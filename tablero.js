@@ -132,7 +132,7 @@ var troncoForma1 = new THREE.CylinderGeometry(10, 25, 75);
 var cuboForma = new THREE.CubeGeometry(60,15, 60);
 var cuboForma1 = new THREE.CubeGeometry(60,15, 60);
 cuboForma.translate(0,-30,0);
-cuboForma1.translate(0,150,0);
+cuboForma1.translate(0,120,0);
 troncoForma1.translate(0,75,0);
 
 var troncoMalla = new THREE.Mesh(troncoForma);

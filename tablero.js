@@ -213,18 +213,16 @@ function renderizar(){
 		requestAnimationFrame(renderizar);
 		return false;
 	}
-	mallaGusano.rotation.y += Math.PI * 0.5 / 180;
-	mallaGusano.rotation.z += Math.PI * Math.cos(x++ / 50) / 180;
-	mallaGusanoA.rotation.y += Math.PI * 0.5 / 180;
-	mallaGusanoA.rotation.z += Math.PI * Math.cos(x++ / 50) / 180;
+	mallaGusano.rotation.y += Math.PI*2/200;
+	mallaGusanoA.rotation.y += Math.PI*2/200;
 	
 	arbolMalla.rotation.y += Math.PI*2/200;
 	arbolMallaA.rotation.y += Math.PI*2/200;
 	
-	mallaPicos.rotation.x += Math.PI*0.5/180;
-	mallaPicosA.rotation.x += Math.PI*0.5/180;
-	mallaPiramide.rotation.x += Math.PI*0.5/180;
-	mallaPiramideA.rotation.x += Math.PI*0.5/180;
+	mallaPicos.rotation.x += Math.PI*2/200;
+	mallaPicosA.rotation.x += Math.PI*2/200;
+	mallaPiramide.rotation.x += Math.PI*2/200;
+	mallaPiramideA.rotation.x += Math.PI*2/200;
 	
 	arbolMalla1.rotation.y += Math.PI*2/200;
 	arbolMalla1A.rotation.y += Math.PI*2/200;

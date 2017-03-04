@@ -7,6 +7,11 @@ var renderizador = new THREE.WebGLRenderer({antialias: true});
 renderizador.setSize(WIDTH,HEIGHT);
 document.body.appendChild(renderizador.domElement);
 
+//////////////////////////SELECCIÓN DE MATERIAL////////////////////////////////////
+var material1 = new THREE.MeshLambertMaterial({color: 0x9999FF});
+var material2= new THREE.MeshLambertMaterial({color: 0xF0D58C});
+var material3= new THREE.MeshLambertMaterial({color: 0xFFFFF0});
+
 //////////FIGURA 1 POR REVOLUCIÓN/////////////////////////////////////////////////
 var puntos = [];
 for ( var i = 0; i < 50; i ++ ) {
@@ -16,11 +21,23 @@ for ( var i = 0; i < 50; i ++ ) {
 }
 var forma = new THREE.LatheGeometry(puntos);
 
-var material = new THREE.MeshNormalMaterial();
-
-var mallaGusano = new THREE.Mesh( forma, material );
+var mallaGusano = new THREE.Mesh( forma, material1 );
 mallaGusano.rotateX( Math.PI/6 );
 mallaGusano.rotateY( Math.PI/6 );
+
+//////////FIGURA 1 POR REVOLUCIÓN/////////////////////////////////////////////////
+var puntos = [];
+for ( var i = 0; i < 50; i ++ ) {
+    puntos.push( new THREE.Vector2(
+                     Math.cos( i * 0.6 ) * 15 + 50,
+                     ( i - 5 ) * 4 ) );
+}
+var forma = new THREE.LatheGeometry(puntos);
+
+var mallaGusano1 = new THREE.Mesh( forma, material2 );
+mallaGusano1.rotateX( Math.PI/6 );
+mallaGusano1.rotateY( Math.PI/6 );
+
 //////////FIGURA 2 POR UNIÓN DE MALLAS/////////////////////////////////////////////
 var troncoForma = new THREE.CylinderGeometry(30, 75, 150);
 var esferaForma = new THREE.SphereGeometry(50);
@@ -45,8 +62,7 @@ arbolForma.merge(cuboMalla.geometry, cuboMalla.matrix);
 arbolForma.merge(cuboMalla1.geometry, cuboMalla1.matrix);
 arbolForma.merge(cuboMalla2.geometry, cuboMalla2.matrix);
 
-var material = new THREE.MeshNormalMaterial();
-var arbolMalla = new THREE.Mesh(arbolForma, material);
+var arbolMalla = new THREE.Mesh(arbolForma, material1);
 
 //////////FIGURA 3 POR EXTRUSIÓN//////////////////////////////////////////////////////
 
@@ -68,8 +84,8 @@ figura.lineTo(10, 10);
 
 var forma = new THREE.ExtrudeGeometry( figura,
                                        {amount: 40} );
-var material = new THREE.MeshNormalMaterial();
-var mallaPicos = new THREE.Mesh( forma, material );
+
+var mallaPicos = new THREE.Mesh( forma, material1 );
 mallaPicos.rotateZ( Math.PI/6 );
 
 //////////FIGURA 4 POR VÉRTICES//////////////////////////////////////////////////////
@@ -90,9 +106,7 @@ forma.faces.push( new THREE.Face3( 2, 3, 4 ) ); // Cara 5
 forma.computeBoundingSphere();
 forma.computeFaceNormals();
 
-var material = new THREE.MeshNormalMaterial();
-
-var mallaPiramide = new THREE.Mesh( forma, material );
+var mallaPiramide = new THREE.Mesh( forma, material1 );
 mallaPiramide.rotateX(Math.PI/8);
 
 
@@ -113,8 +127,30 @@ arbolForma1.merge(troncoMalla.geometry, troncoMalla.matrix);
 arbolForma1.merge(esferaMalla.geometry, esferaMalla.matrix);
 arbolForma1.merge(cuboMalla.geometry, cuboMalla.matrix);
 
-var material = new THREE.MeshNormalMaterial();
-var arbolMalla1 = new THREE.Mesh(arbolForma1, material);
+var arbolMalla1 = new THREE.Mesh(arbolForma1, material1);
+
+//////////FIGURA 6 POR UNIÓN DE MALLAS/////////////////////////////////////////////////
+
+var troncoForma = new THREE.CylinderGeometry(25, 10, 75);
+var troncoForma1 = new THREE.CylinderGeometry(10, 25, 75);
+var cuboForma = new THREE.CubeGeometry(60,15, 60);
+var cuboForma1 = new THREE.CubeGeometry(60,15, 60);
+cuboForma.translate(0,-15,0);
+cuboForma1.translate(0,75,0);
+troncoForma1.translate(0,75,0);
+
+var troncoMalla = new THREE.Mesh(troncoForma);
+var troncoMalla1 = new THREE.Mesh(troncoForma1);
+var cuboMalla = new THREE.Mesh(cuboForma);
+var cuboMalla1 = new THREE.Mesh(cuboForma1);
+
+var arbolForma2 = new THREE.Geometry();
+arbolForma2.merge(troncoMalla.geometry, troncoMalla.matrix);
+arbolForma2.merge(troncoMalla1.geometry, troncoMalla1.matrix);
+arbolForma2.merge(cuboMalla.geometry, cuboMalla.matrix);
+arbolForma2.merge(cuboMalla1.geometry, cuboMalla1.matrix);
+
+var arbolMalla2 = new THREE.Mesh(arbolForma2, material1);
 
 ////////////////////ESCENAS////////////////////////////////////////////////////////////
 var escena = new THREE.Scene();
@@ -123,6 +159,7 @@ escena.add(arbolMalla);
 escena.add(mallaPicos);
 escena.add(mallaPiramide);
 escena.add(arbolMalla1);
+escena.add(arbolMalla2);
 ////////////////////PARÁMETROS DE CAMARA//////////////////////////////////////////////
 var camara = new THREE.PerspectiveCamera(65,(WIDTH / HEIGHT),0.1,10000);
 camara.position.z = 700;
@@ -132,19 +169,26 @@ camara.position.x = 99;
 //////////////////////POSICIÓN DE FIGURAS EN TABLERO//////////////////////////////////
 camara.lookAt(mallaGusano.position);
 
+mallaGusano.position.x=-100;
 mallaGusano.position.z=300;
 
-arbolMalla.position.x=-300;
+mallaGusano1.position.x=-100;
+mallaGusano1.position.z=-300;
+
+arbolMalla.position.x=-350;
 arbolMalla.position.z=250;
 
-mallaPicos.position.x=-400;
+mallaPicos.position.x=-430;
 mallaPicos.position.z=300;
 
-mallaPiramide.position.x=200;
+mallaPiramide.position.x=100;
 mallaPiramide.position.z=250;
 
-arbolMalla1.position.x=350;
+arbolMalla1.position.x=250;
 arbolMalla1.position.z=300;
+
+arbolMalla2.position.x=430;
+arbolMalla2.position.z=250;
 
 escena.add(camara);
 

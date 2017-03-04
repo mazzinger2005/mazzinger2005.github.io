@@ -100,7 +100,7 @@ mallaPiramide.rotateX(Math.PI/8);
 
 var troncoForma = new THREE.CylinderGeometry(25, 10, 75);
 var cuboForma = new THREE.CubeGeometry(100,25, 100);
-var esferaForma = new THREE.SphereGeometry(50);
+var esferaForma = new THREE.SphereGeometry(35);
 esferaForma.translate(0,60,0);
 cuboForma.translate(0,-50,0);
 

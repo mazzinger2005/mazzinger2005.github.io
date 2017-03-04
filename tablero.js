@@ -204,13 +204,36 @@ arbolMalla2A.position.z=-350;
 
 escena.add(camara);
 
-var luz1 = new THREE.PointLight(0xff0044);
-luz1.position.set(120,260,100);
+x=0;
+init=true;
+hover=true;
+function renderizar(){
+	if(!hover || init){
+		init=false;
+		requestAnimationFrame(renderizar);
+		return false;
+	}
+	mallaGusano.rotation.y += Math.PI * 0.5 / 180;
+	mallaGusano.rotation.z += Math.PI * Math.cos(x++ / 50) / 180;
+	mallaGusanoA.rotation.y += Math.PI * 0.5 / 180;
+	mallaGusanoA.rotation.z += Math.PI * Math.cos(x++ / 50) / 180;
+	
+	arbolMalla.rotation.y += Math.PI*2/200;
+	arbolMallaA.rotation.y += Math.PI*2/200;
+	
+	mallaPicos.rotation.x += Math.PI*0.5/180;
+	mallaPicosA.rotation.x += Math.PI*0.5/180;
+	mallaPiramide.rotation.x += Math.PI*0.5/180;
+	mallaPiramideA.rotation.x += Math.PI*0.5/180;
+	
+	arbolMalla1.rotation.y += Math.PI*2/200;
+	arbolMalla1A.rotation.y += Math.PI*2/200;
+	
+	arbolMalla2.rotation.y += Math.PI*2/200;
+	arbolMalla2A.rotation.y += Math.PI*2/200;
+	
+	renderizador.render(escena, camara);
+	requestAnimationFrame(renderizar);
+}
+renderizar();
 
-var luz2 = new THREE.PointLight(0x4499ff);
-luz2.position.set(-100,100,200);
-
-escena.add(luz1);
-escena.add(luz2);
-
-renderizador.render( escena, camara );

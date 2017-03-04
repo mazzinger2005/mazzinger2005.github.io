@@ -93,7 +93,7 @@ forma.computeFaceNormals();
 var material = new THREE.MeshNormalMaterial();
 
 var mallaPiramide = new THREE.Mesh( forma, material );
-mallaPiramide.rotateX(Math.PI/4);
+mallaPiramide.rotateX(Math.PI/8);
 
 
 //////////FIGURA 5 POR UNIÓN DE MALLAS/////////////////////////////////////////////////

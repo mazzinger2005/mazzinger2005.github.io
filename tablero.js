@@ -23,21 +23,11 @@ for ( var i = 0; i < 50; i ++ ) {
 var forma = new THREE.LatheGeometry(puntos);
 
 var mallaGusano = new THREE.Mesh( forma, material );
+var mallaGusanoA = new THREE.Mesh( forma, material );
 mallaGusano.rotateX( Math.PI/6 );
 mallaGusano.rotateY( Math.PI/6 );
-
-//////////FIGURA 1 POR REVOLUCIÓN/////////////////////////////////////////////////
-var puntos = [];
-for ( var i = 0; i < 50; i ++ ) {
-    puntos.push( new THREE.Vector2(
-                     Math.cos( i * 0.6 ) * 15 + 50,
-                     ( i - 5 ) * 4 ) );
-}
-var forma = new THREE.LatheGeometry(puntos);
-
-var mallaGusano1 = new THREE.Mesh( forma, material );
-mallaGusano1.rotateX( Math.PI/6 );
-mallaGusano1.rotateY( Math.PI/6 );
+mallaGusanoA.rotateX( Math.PI/6 );
+mallaGusanoA.rotateY( Math.PI/6 );
 
 //////////FIGURA 2 POR UNIÓN DE MALLAS/////////////////////////////////////////////
 var troncoForma = new THREE.CylinderGeometry(30, 75, 150);
@@ -64,6 +54,7 @@ arbolForma.merge(cuboMalla1.geometry, cuboMalla1.matrix);
 arbolForma.merge(cuboMalla2.geometry, cuboMalla2.matrix);
 
 var arbolMalla = new THREE.Mesh(arbolForma, material);
+var arbolMallaA = new THREE.Mesh(arbolForma, material);
 
 //////////FIGURA 3 POR EXTRUSIÓN//////////////////////////////////////////////////////
 
@@ -87,7 +78,9 @@ var forma = new THREE.ExtrudeGeometry( figura,
                                        {amount: 40} );
 
 var mallaPicos = new THREE.Mesh( forma, material );
+var mallaPicosA = new THREE.Mesh( forma, material );
 mallaPicos.rotateZ( Math.PI/6 );
+mallaPicosA.rotateZ( Math.PI/6 );
 
 //////////FIGURA 4 POR VÉRTICES//////////////////////////////////////////////////////
 
@@ -108,8 +101,9 @@ forma.computeBoundingSphere();
 forma.computeFaceNormals();
 
 var mallaPiramide = new THREE.Mesh( forma, material );
+var mallaPiramideA = new THREE.Mesh( forma, material );
 mallaPiramide.rotateX(Math.PI/8);
-
+mallaPiramideA.rotateX(Math.PI/8);
 
 //////////FIGURA 5 POR UNIÓN DE MALLAS/////////////////////////////////////////////////
 
@@ -129,6 +123,7 @@ arbolForma1.merge(esferaMalla.geometry, esferaMalla.matrix);
 arbolForma1.merge(cuboMalla.geometry, cuboMalla.matrix);
 
 var arbolMalla1 = new THREE.Mesh(arbolForma1, material);
+var arbolMalla1A = new THREE.Mesh(arbolForma1, material);
 
 //////////FIGURA 6 POR UNIÓN DE MALLAS/////////////////////////////////////////////////
 
@@ -152,6 +147,7 @@ arbolForma2.merge(cuboMalla.geometry, cuboMalla.matrix);
 arbolForma2.merge(cuboMalla1.geometry, cuboMalla1.matrix);
 
 var arbolMalla2 = new THREE.Mesh(arbolForma2, material);
+var arbolMalla2A = new THREE.Mesh(arbolForma2, material);
 
 ////////////////////ESCENAS////////////////////////////////////////////////////////////
 var escena = new THREE.Scene();
@@ -161,35 +157,50 @@ escena.add(mallaPicos);
 escena.add(mallaPiramide);
 escena.add(arbolMalla1);
 escena.add(arbolMalla2);
+escena.add(mallaGusanoA);
+escena.add(arbolMallaA);
+escena.add(mallaPicosA);
+escena.add(mallaPiramideA);
+escena.add(arbolMalla1A);
+escena.add(arbolMalla2A);
 ////////////////////PARÁMETROS DE CAMARA//////////////////////////////////////////////
 var camara = new THREE.PerspectiveCamera(65,(WIDTH / HEIGHT),0.1,10000);
 camara.position.z = 700;
-camara.position.y = 140;
-camara.position.x = 99;
+camara.position.y = 150;
+camara.position.x = 100;
 
 //////////////////////POSICIÓN DE FIGURAS EN TABLERO//////////////////////////////////
 camara.lookAt(mallaGusano.position);
 
 mallaGusano.position.x=-100;
 mallaGusano.position.z=300;
-
-mallaGusano1.position.x=-100;
-mallaGusano1.position.z=-500;
+mallaGusanoA.position.x=-100;
+mallaGusanoA.position.z=-400;
 
 arbolMalla.position.x=-350;
 arbolMalla.position.z=250;
+arbolMallaA.position.x=-350;
+arbolMallaA.position.z=-350;
 
 mallaPicos.position.x=-430;
 mallaPicos.position.z=300;
+mallaPicosA.position.x=-430;
+mallaPicosA.position.z=-400;
 
 mallaPiramide.position.x=100;
 mallaPiramide.position.z=250;
+mallaPiramideA.position.x=100;
+mallaPiramideA.position.z=-350;
 
 arbolMalla1.position.x=250;
 arbolMalla1.position.z=300;
+arbolMalla1A.position.x=250;
+arbolMalla1A.position.z=-400;
 
 arbolMalla2.position.x=430;
 arbolMalla2.position.z=250;
+arbolMalla2A.position.x=430;
+arbolMalla2A.position.z=-350;
 
 escena.add(camara);
 

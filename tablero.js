@@ -174,7 +174,7 @@ mallaGusano.position.x=-100;
 mallaGusano.position.z=300;
 
 mallaGusano1.position.x=-100;
-mallaGusano1.position.z=-300;
+mallaGusano1.position.z=-500;
 
 arbolMalla.position.x=-350;
 arbolMalla.position.z=250;

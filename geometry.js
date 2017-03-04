@@ -23,14 +23,14 @@ forma.computeFaceNormals();
 var material = new THREE.MeshNormalMaterial();
 
 var malla = new THREE.Mesh( forma, material );
-malla.rotateX(Math.PI/8);
-malla.rotateY(Math.PI/8);
+//malla.rotateX(Math.PI/8);
+//malla.rotateY(Math.PI/8);
 
 var escena = new THREE.Scene();
 escena.add( malla );
 
 var camara = new THREE.PerspectiveCamera();
-camara.position.z = 20;
+camara.position.z = 10;
 
 var renderizador = new THREE.WebGLRenderer();
 renderizador.setSize( window.innerHeight*.95, 

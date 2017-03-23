@@ -20,7 +20,7 @@ function setup(){
 
 	var tipoEvento='resize';
 	var capturar=false;
-	window.addEventListener(tipoEvento,listener,capturer);
+	window.addEventListener(tipoEvento,listener,capturar);
 }
 
 function loop(){

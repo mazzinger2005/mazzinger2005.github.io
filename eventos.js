@@ -25,6 +25,15 @@ function setup(){
 	window.addEventListener(tipoEvento,listener,capturarp);
 }
 
+function push (e){
+	if (e.keyCode===65)
+		camara.position.z++;
+	else if(e.keyCode===90)
+		camara.position.z--;
+}
+window.addEventListener('keypress',push,false);
+
+
 function loop(){
 	requestAnimationFrame(loop);
 	malla.rotation.x += 0.01;

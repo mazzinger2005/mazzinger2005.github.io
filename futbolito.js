@@ -314,7 +314,7 @@ humano.merge(torso.geometry, torso.matrix);
 humano.merge(cuello.geometry, cuello.matrix);
 humano.merge(cabeza.geometry, cabeza.matrix);
 material = new THREE.MeshNormalMaterial();
-var mapHeight = new THREE.TextureLoader().load( "obj/leeperrysmith/Infinite-Level_02_Disp_NoSmoothUV-4096.jpg" );
+var mapHeight = new THREE.TextureLoader().load( "https://mazzinger2005.github.io/texturaHumano.jpg" );
 				mapHeight.anisotropy = 4;
 				mapHeight.repeat.set( 0.998, 0.998 );
 				mapHeight.offset.set( 0.001, 0.001 );

@@ -293,7 +293,7 @@ cabeza=new THREE.Mesh(cabeza);
 return cabeza;
 }
 
-////////////////////////////EQUIPO MARCIANOS/////////////////////////////////////////////////
+////////////////////////////EQUIPO HUMANOS/////////////////////////////////////////////////
 
 function human(){
 
@@ -313,7 +313,20 @@ humano.merge(pies[1].geometry, pies[1].matrix);
 humano.merge(torso.geometry, torso.matrix);
 humano.merge(cuello.geometry, cuello.matrix);
 humano.merge(cabeza.geometry, cabeza.matrix);
-material = new THREE.MeshNormalMaterial();				
+material = new THREE.MeshNormalMaterial();
+var mapHeight = new THREE.TextureLoader().load( "obj/leeperrysmith/Infinite-Level_02_Disp_NoSmoothUV-4096.jpg" );
+				mapHeight.anisotropy = 4;
+				mapHeight.repeat.set( 0.998, 0.998 );
+				mapHeight.offset.set( 0.001, 0.001 );
+				mapHeight.wrapS = mapHeight.wrapT = THREE.RepeatWrapping;
+				mapHeight.format = THREE.RGBFormat;
+var material = new THREE.MeshPhongMaterial( {
+					color: 0x552811,
+					specular: 0x222222,
+					shininess: 25,
+					bumpMap: mapHeight,
+					bumpScale: 12
+				} );
 humano1=new THREE.Mesh(humano,material);
 humano2=new THREE.Mesh(humano,material);
 humano3=new THREE.Mesh(humano,material);

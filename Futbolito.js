@@ -314,19 +314,8 @@ humano.merge(torso.geometry, torso.matrix);
 humano.merge(cuello.geometry, cuello.matrix);
 humano.merge(cabeza.geometry, cabeza.matrix);
 material = new THREE.MeshNormalMaterial();
-mapHeight = new THREE.TextureLoader().load( "https://mazzinger2005.github.io/texturaHumano.jpg" );
-				mapHeight.anisotropy = 4;
-				mapHeight.repeat.set( 0.998, 0.998 );
-				mapHeight.offset.set( 0.001, 0.001 );
-				mapHeight.wrapS = mapHeight.wrapT = THREE.RepeatWrapping;
-				mapHeight.format = THREE.RGBFormat;
-material = new THREE.MeshPhongMaterial( {
-					color: 0x552811,
-					specular: 0x222222,
-					shininess: 25,
-					bumpMap: mapHeight,
-					bumpScale: 12
-				} );
+
+				
 humano1=new THREE.Mesh(humano,material);
 humano2=new THREE.Mesh(humano,material);
 humano3=new THREE.Mesh(humano,material);
@@ -480,24 +469,39 @@ escena.add(humano[5]);
 
 function push (e){
 
-	if (e.keyCode===120){
+	if (e.keyCode===120 && humano[0].position.z<=-150){
 		humano[0].position.z += 20;
 		humano[1].position.z += 20;
 		humano[2].position.z += 20;}
-	if(e.keyCode===115){
+	else if (e.keyCode===120 && humano[0].position.z>-150){
+		humano[0].position.z = -140;}
+	if (e.keyCode===115 && humano[2].position.z>=-1840){
 		humano[0].position.z -= 20;
 		humano[1].position.z -= 20;
 		humano[2].position.z -= 20;}
-	if (e.keyCode===99){
+	else if (e.keyCode===115 && humano[2].position.z<-1840){
+		humano[0].position.z = -1060;
+		humano[1].position.z = -1460;
+		humano[2].position.z = -1860;}
+	if (e.keyCode===99 && humano[3].position.z<=-150){
 		humano[3].position.z += 20;
 		humano[4].position.z += 20;}
-	if(e.keyCode===100){
+	else if (e.keyCode===99 && humano[3].position.z>-150){
+		humano[3].position.z = -140;}
+	if (e.keyCode===100 && humano[4].position.z>=-1840){
 		humano[3].position.z -= 20;
 		humano[4].position.z -= 20;}
-	if (e.keyCode===109){
+	else if (e.keyCode===100 && humano[4].position.z<-1840){
+		humano[3].position.z = -1460;
+		humano[4].position.z = -1860;}
+	if (e.keyCode===109 && humano[5].position.z<=-600){
 		humano[5].position.z += 20;}
-	if(e.keyCode===107){
+	else if (e.keyCode===109 && humano[5].position.z>-600){
+		humano[5].position.z = -590;}
+	if(e.keyCode===107 && humano[5].position.z>=-1200){
 		humano[5].position.z -= 20;}
+	else if (e.keyCode===107 && humano[5].position.z<-1200){
+		humano[5].position.z = -1210;}
 }
 ///////////////////////////////////////////////////////////////////////////////////
 window.addEventListener('keypress',push,false);
@@ -564,3 +568,4 @@ escenaPelota();
 escenaEquipoMarciano();
 escenaEquipoHumano();
 loop();
+

@@ -484,7 +484,6 @@ function push (e){
 		humano[0].position.z += 20;
 		humano[1].position.z += 20;
 		humano[2].position.z += 20;}
-	else if (){
 	if(e.keyCode===115){
 		humano[0].position.z -= 20;
 		humano[1].position.z -= 20;

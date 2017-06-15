@@ -314,13 +314,13 @@ humano.merge(torso.geometry, torso.matrix);
 humano.merge(cuello.geometry, cuello.matrix);
 humano.merge(cabeza.geometry, cabeza.matrix);
 material = new THREE.MeshNormalMaterial();
-var mapHeight = new THREE.TextureLoader().load( "https://mazzinger2005.github.io/texturaHumano.jpg" );
+mapHeight = new THREE.TextureLoader().load( "https://mazzinger2005.github.io/texturaHumano.jpg" );
 				mapHeight.anisotropy = 4;
 				mapHeight.repeat.set( 0.998, 0.998 );
 				mapHeight.offset.set( 0.001, 0.001 );
 				mapHeight.wrapS = mapHeight.wrapT = THREE.RepeatWrapping;
 				mapHeight.format = THREE.RGBFormat;
-var material = new THREE.MeshPhongMaterial( {
+material = new THREE.MeshPhongMaterial( {
 					color: 0x552811,
 					specular: 0x222222,
 					shininess: 25,
